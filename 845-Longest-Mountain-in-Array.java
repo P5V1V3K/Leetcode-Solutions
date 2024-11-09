@@ -2,7 +2,7 @@ class Solution {
     public int longestMountain(int[] arr) {
         int c=0;
         for(int i=1;i<arr.length-1;++i){
-            if(arr[i]>arr[i+1]){
+            if(arr[i]>arr[i+1] && arr[i]>arr[i-1]){
                 int l=i, r=i, rc=0, lc=0;
                 while(l-1>=0){
                     if(arr[l]>arr[l-1]){
