@@ -8,7 +8,7 @@ class Solution {
                 ++j;
             }
             else {
-                if((j>0 && typed.charAt(j-1)!=typed.charAt(j)))return false;
+                if((i>0 && name.charAt(i-1)!=typed.charAt(j)))return false;
                 ++j;
             }
         }
