@@ -1,22 +1,18 @@
 class Solution {
     public int maxCount(int[] banned, int n, int maxSum) {
-        long sum=n*(n+1)/2;
-        int count=n;
-        HashSet<Integer> set = new HashSet<>();
+        int[] arr = new int[n];
         for(int num : banned){
-            if(num<=n && !set.contains(num)){
-                sum-=num;
-                --count;
-            }
-            set.add(num);
+            if(num<=n)arr[num-1]=1;
         }
-        while(sum>maxSum){
-            if(!set.contains(n)){
-                sum-=n;
-                --count;
+        int sum=0,count=0,i=0;
+        while(sum<=maxSum && i<n){
+            if(arr[i]!=1){
+                sum+=i+1;
+                ++count;
             }
-            --n;
+            ++i;
         }
-        return count;
+        if(sum<=maxSum)return count;
+        return count-1;
     }
 }
